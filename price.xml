@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<extension type="component" version="3.8" method="upgrade">
+	<name>COM_PRICE</name>
+	<creationDate>13.12.2021</creationDate>
+	<author>user42</author>
+	<authorEmail>anton.r@lred.ru</authorEmail>
+	<copyright>Редлайн</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<version>1.0.9</version>
+	<description>COM_PRICE_XML_DESCRIPTION</description>
+
+	<!-- Scripts to run on installation -->
+	<scriptfile>script.php</scriptfile>
+
+	<!-- Runs on install -->
+	<install>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/install/mysql/mysql.sql</file>
+		</sql>
+	</install>
+
+	<!-- Runs on update -->
+	<update>
+		<schemas>
+			<schemapath type="mysql">sql/updates/mysql</schemapath>
+		</schemas>
+	</update>
+
+	<!-- Media files -->
+	<media folder="media/com_price" destination="com_price">
+		<folder>css</folder>
+		<folder>images</folder>
+		<folder>js</folder>
+	</media>
+
+	<!-- Front-end files -->
+	<files folder="components/com_price">
+		<filename>price.php</filename>
+		<filename>controller.php</filename>
+		<folder>controllers</folder>
+		<folder>language</folder>
+		<folder>layouts</folder>
+		<folder>models</folder>
+		<folder>views</folder>
+	</files>
+
+	<!-- Back-end files -->
+	<administration>
+		<!-- Menu entries -->
+		<menu view="price">Прайс-лист</menu>
+		<submenu>
+			<!--
+				Note that all & must be escaped to &amp; for the file to be valid
+				XML and be parsed by the installer
+			-->
+			<menu link="option=com_price">Загрузить</menu>
+		</submenu>
+
+		<!-- Core files -->
+		<files folder="administrator/components/com_price">
+			<filename>price.php</filename>
+			<filename>access.xml</filename>
+			<filename>config.xml</filename>
+			<filename>controller.php</filename>
+			<filename>LICENSE.txt</filename>
+			<filename>composer.json</filename>
+			<filename>composer.lock</filename>
+			<folder>controllers</folder>
+			<folder>helpers</folder>
+			<folder>language</folder>
+			<folder>models</folder>
+			<folder>sql</folder>
+			<folder>tables</folder>
+			<folder>views</folder>
+			<folder>vendor</folder>
+		</files>
+	</administration>
+
+	<!-- Update servers -->
+	<!-- <updateservers>
+		<server type="extension" priority="1" name="[PROJECT_NAME]">https://www.example.com/price.xml</server>
+	</updateservers> -->
+</extension>

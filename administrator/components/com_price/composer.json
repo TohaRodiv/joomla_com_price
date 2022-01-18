@@ -1,0 +1,9 @@
+{
+    "require": {
+        "symfony/serializer": "^5.2",
+        "phpoffice/phpspreadsheet": "^1.17"
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^5.2"
+    }
+}
